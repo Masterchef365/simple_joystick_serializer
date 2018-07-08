@@ -59,6 +59,11 @@ int main (int argc, char** argv) {
 	struct js_event event;
 	bzero(&event, sizeof(struct js_event));
 
+	/* Identify as a joystick */ 
+	bzero(message_buf, buf_len);
+	sprintf(message_buf, "id:joystick\n");
+	write(sockfd, message_buf, buf_len);
+
 	/* Read joystick messages, and serialize them into text */
 	while (read(joystick_fd, &event, sizeof(struct js_event)) == sizeof(struct js_event)) {
 		bzero(message_buf, buf_len);

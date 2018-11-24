@@ -1,3 +1,4 @@
 main
 main.o
 .sconsign.dblite
+compile_commands.json
